@@ -1,3 +1,7 @@
+"""
+Defines internal order book representation.
+"""
+
 from dataclasses import dataclass, field
 
 @dataclass
@@ -62,6 +66,6 @@ class OrderBook:
         return (
             f"{self.product_id} | "
             f"best bid = {bid.price: .4f} ({bid.size: .9f}) | "
-            f"best ask = {bid.ask: .4f} ({ask.size: .9f}) | "
+            f"best ask = {ask.price: .4f} ({ask.size: .9f}) | "
             f"spread = {spread: .4f}"
         )
