@@ -1,3 +1,10 @@
+"""
+1. Creates an OrderBook object
+2. Fetches snapshots every second
+3. Updates OrderBook object
+4. Prints summary (best bid/ask & spread)
+"""
+
 import time
 
 from api import fetch_orderbook_snapshot
