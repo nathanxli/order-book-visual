@@ -3,11 +3,12 @@ Defines internal order book representation.
 """
 
 from dataclasses import dataclass, field
+from decimal import Decimal
 
 @dataclass
 class PriceLevel:
-    price: float
-    size: float
+    price: Decimal
+    size: Decimal
     num_orders: int
 
 @dataclass
@@ -22,8 +23,8 @@ class OrderBook:
 
         self.bids = [
             PriceLevel(
-                price = float(level[0]),
-                size = float(level[1]),
+                price = Decimal(level[0]),
+                size = Decimal(level[1]),
                 num_orders=int(level[2])
             )
             for level in snapshot.get("bids", [])
@@ -31,8 +32,8 @@ class OrderBook:
 
         self.asks = [
             PriceLevel(
-                price = float(level[0]),
-                size = float(level[1]),
+                price = Decimal(level[0]),
+                size = Decimal(level[1]),
                 num_orders=int(level[2])
             )
             for level in snapshot.get("asks", [])
